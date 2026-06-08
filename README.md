@@ -1,1 +1,354 @@
 # -berraschung
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> A LETTER FOR MY SISTER❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins,sans-serif;
+background:#f4efe6;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+/* ---------- Envelope Screen ---------- */
+
+#envelope-screen{
+text-align:center;
+}
+
+.envelope{
+position:relative;
+width:320px;
+height:220px;
+background:#e8dcc6;
+border-radius:6px;
+cursor:pointer;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+overflow:hidden;
+transition:.5s;
+}
+
+.envelope:hover{
+transform:translateY(-5px);
+}
+
+.flap{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:120px;
+background:#d8c7a8;
+clip-path:polygon(0 0,100% 0,50% 100%);
+transform-origin:top;
+transition:1s;
+z-index:5;
+}
+
+.seal{
+position:absolute;
+left:50%;
+top:85px;
+transform:translateX(-50%);
+width:55px;
+height:55px;
+background:#b22222;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:22px;
+color:white;
+z-index:10;
+transition:.5s;
+}
+
+.envelope-text{
+position:absolute;
+bottom:25px;
+width:100%;
+font-weight:600;
+color:#5a4633;
+}
+
+.open .flap{
+transform:rotateX(180deg);
+}
+
+.open .seal{
+opacity:0;
+}
+
+/* ---------- Letter ---------- */
+
+#letter-screen{
+display:none;
+position:absolute;
+inset:0;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.letter{
+background:#fffdf7;
+width:100%;
+max-width:700px;
+height:85vh;
+border-radius:10px;
+box-shadow:0 20px 50px rgba(0,0,0,.15);
+padding:30px;
+position:relative;
+overflow:auto;
+
+background-image:
+repeating-linear-gradient(
+to bottom,
+transparent,
+transparent 34px,
+#d7e5ff 35px
+);
+}
+
+.date{
+text-align:right;
+color:#666;
+margin-bottom:20px;
+}
+
+.photo{
+width:150px;
+height:150px;
+border-radius:10px;
+object-fit:cover;
+display:block;
+margin:0 auto 20px;
+border:3px solid #ddd;
+}
+
+.message{
+font-family:'Caveat',cursive;
+font-size:32px;
+line-height:1.7;
+color:#333;
+}
+
+.stamp{
+position:absolute;
+right:20px;
+bottom:20px;
+border:2px dashed #888;
+padding:12px;
+font-size:12px;
+text-align:center;
+transform:rotate(-8deg);
+}
+
+.exit-btn{
+margin-top:30px;
+padding:12px 25px;
+border:none;
+background:#b22222;
+color:white;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+/* ---------- Final Screen ---------- */
+
+#final-screen{
+display:none;
+position:absolute;
+inset:0;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:#f4efe6;
+text-align:center;
+padding:20px;
+}
+
+.final-text{
+font-size:2rem;
+color:#444;
+animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:600px){
+
+.message{
+font-size:26px;
+}
+
+.photo{
+width:120px;
+height:120px;
+}
+
+.envelope{
+width:280px;
+height:200px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- Envelope -->
+
+<div id="envelope-screen">
+
+<div class="envelope" id="envelope" onclick="openLetter()">
+
+<div class="flap"></div>
+
+<div class="seal">❤️</div>
+
+<div class="envelope-text">
+A LETTER FOR MY SISTER  ❤️
+</div>
+
+</div>
+
+<p style="margin-top:20px;">
+Tap the envelope ✉️
+</p>
+
+</div>
+
+<!-- Letter -->
+
+<div id="letter-screen">
+
+<div class="letter">
+
+<div class="date">
+9 June 2026
+</div>
+
+<img src="/Users/renaldin/Documents/birthday/img/WhatsApp Image 2026-06-07 at 13.22.26.jpeg" class="photo">
+
+<div class="message">
+
+Dear Akka,
+
+<br><br>
+
+Happy Birthday 🎂
+
+<br><br>
+
+Wishing you happiness,
+good health,
+success,
+and lots of smiles.
+
+<br><br>
+
+May this year bring wonderful memories,
+beautiful moments,
+and everything you hope for.
+
+<br><br>
+
+Have an amazing birthday ❤️
+
+<br><br>
+
+With Best Wishes From,
+
+<br>
+
+Your Brother ✨
+
+</div>
+
+<button class="exit-btn" onclick="showFinal()">
+Close Letter
+</button>
+
+<div class="stamp">
+Birthday Mail<br>
+2026
+</div>
+
+</div>
+
+</div>
+
+<!-- Final Screen -->
+
+<div id="final-screen">
+
+<div class="final-text">
+
+✨ May Your Wishes Come True ✨
+
+<br><br>
+
+🎂 Happy Birthday kitkat Akka ❤️
+
+</div>
+
+</div>
+
+<script>
+
+function openLetter(){
+
+const envelope=document.getElementById("envelope");
+
+envelope.classList.add("open");
+
+setTimeout(()=>{
+
+document.getElementById("envelope-screen").style.display="none";
+
+document.getElementById("letter-screen").style.display="flex";
+
+},1000);
+
+}
+
+function showFinal(){
+
+document.getElementById("letter-screen").style.display="none";
+
+document.getElementById("final-screen").style.display="flex";
+
+}
+
+</script>
+
+</body>
+</html>
